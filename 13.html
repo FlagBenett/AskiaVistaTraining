@@ -1,0 +1,50 @@
+﻿<!doctype html >
+<html>
+<head>
+    <title>Training AskiaVista</title>
+    <script type="text/javascript" src="https://show.askia.com/AskiaVistaReader.Net4/Scripts/jquery.js"></script>
+    <script type="text/javascript" src="https://show.askia.com/AskiaVistaReader.Net4/Scripts/askiavista.js"></script>
+	<script type="text/javascript" src="https://show.askia.com/AskiaVistaReader.Net4/Scripts/askiavista.replay.js"></script>
+	<script type="text/javascript" src="https://show.askia.com/AskiaVistaReader.Net4/Scripts/askiavista.ui.dropdown.js"></script>
+   <script type="text/javascript" src="./connect.js"></script>
+   <script type="text/javascript">
+
+
+
+		askiaVista.getQuestions({
+			profile:"test54",
+			success:function(result){
+				console.log(JSON.parse(result));
+			},
+			dropDown:"#DD",
+			replay:{
+				id:"1",
+				parameter:"rows"
+			}
+		});
+
+		askiaVista.getPages({
+			id:"1",
+      rows:"7. Type",
+      columns: "i1. Gender",
+			containerId: "result1"
+		});
+
+		function myFilter(){
+			askiaVista.replay("1", {
+				"rows":document.getElementById("DD").value
+			});
+		}
+
+    </script>
+</head>
+
+<body>
+
+    <select id="DD"></select>
+	<div id="result1"></div>
+
+</body>
+
+
+</html>

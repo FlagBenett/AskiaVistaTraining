@@ -1,0 +1,37 @@
+<!doctype html >
+<html>
+<head>
+    <title>Training AskiaVista</title>
+    <script type="text/javascript" src="https://show.askia.com/AskiaVistaReader.Net4/Scripts/jquery.js"></script>
+    <script type="text/javascript" src="https://show.askia.com/AskiaVistaReader.Net4/Scripts/askiavista.js"></script>
+	<script type="text/javascript" src="https://show.askia.com/AskiaVistaReader.Net4/Scripts/jquery.blockUI.js"></script>
+	<script type="text/javascript">
+     
+		askiaVista.config({
+            baseUrl: "https://show.askia.com/AskiaVistaReader.Net4/",
+            survey: "EX"
+        });
+
+		askiaVista.movePortfolioItems({
+		   survey  : 'EX',
+		   portfolio : 'Stephen',
+		   items   : ['exemple'],
+		   before  : 'firstItem',
+		   success : function (data, query) {
+			  console.log(JSON.parse(data));
+		   },
+		   error : function (message, query) {
+			   alert(message);
+		   }
+		});
+  
+		
+    </script>
+</head>
+
+<body>
+	
+</body>
+
+
+</html>

@@ -1,0 +1,52 @@
+﻿<!doctype html >
+<html>
+<head>
+    <title>Training AskiaVista</title>
+    <script type="text/javascript" src="https://show.askia.com/AskiaVistaReader.Net4/Scripts/jquery.js"></script>
+    <script type="text/javascript" src="https://show.askia.com/AskiaVistaReader.Net4/Scripts/askiavista.js"></script>
+	<script type="text/javascript" src="https://show.askia.com/AskiaVistaReader.Net4/Scripts/jquery.blockUI.js"></script>
+	<script type="text/javascript" src="./connect.js"></script>
+  <script type="text/javascript">
+
+		askiaVista.config({
+			showLoginForm : function () {
+				 document.getElementById("loginbox").setAttribute("style","display:block");
+			 }
+    });
+
+    askiaVista.getPages({
+      rows:"7. Type",
+      columns: "i1. Gender",
+      containerId: "result"
+    });
+
+		function myLogin(){
+			 console.log('logging in');
+			 askiaVista.login({
+				  login : $('#login').val(),
+				  password : $('#password').val(),
+				  success : function () {
+					 console.log('The user was successfully authenticated');
+					 $('#loginbox').hide();
+				  },
+				  error : function (message, query) {
+					 $('#error. message').html(message);
+				  }
+			 });
+		}
+
+    </script>
+</head>
+
+<body>
+	<div id="loginbox" style="display:none">
+		<div id="error. message"></div>
+		<input type="text" placeholder="login" id="login"/>
+		<input type="password" placeholder="pass" id="password"/>
+		<input type="button" value="login" onclick="myLogin()"/>
+	</div>
+    <div id="result"></div>
+</body>
+
+
+</html>

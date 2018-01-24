@@ -1,0 +1,32 @@
+﻿<!doctype html >
+<html>
+<head>
+    <title>Training AskiaVista</title>
+    <script type="text/javascript" src="https://show.askia.com/AskiaVistaReader.Net4/Scripts/jquery.js"></script>
+	<script type="text/javascript" src="https://show.askia.com/AskiaVistaReader.Net4/Scripts/jquery.blockUI.js"></script>
+    <script type="text/javascript" src="https://show.askia.com/AskiaVistaReader.Net4/Scripts/askiavista.js"></script>
+   <script type="text/javascript" src="./connect.js"></script>
+   <script type="text/javascript">
+
+
+		function myTable(){
+      askiaVista.getPages({
+  			rows:"7. Type",
+  			columns: "i1. Gender",
+  			containerId: "result"
+  		});
+    }
+
+    </script>
+</head>
+
+<body>
+
+    <div id="result"></div>
+	<input type="button" value="request table" onclick="myTable()"/>
+	<input type="button" value="logout" onclick="askiaVista.logout()"/>
+
+</body>
+
+
+</html>

@@ -1,0 +1,45 @@
+<!doctype html >
+<html>
+<head>
+    <title>Training AskiaVista</title>
+    <script type="text/javascript" src="https://show.askia.com/AskiaVistaReader.Net4/Scripts/jquery.js"></script>
+    <script type="text/javascript" src="https://show.askia.com/AskiaVistaReader.Net4/Scripts/askiavista.js"></script>
+	<script type="text/javascript" src="https://show.askia.com/AskiaVistaReader.Net4/Scripts/askiavista.ui.pagination.js"></script>
+
+<script type="text/javascript" src="https://show.askia.com/AskiaVistaReader.Net4/Scripts/highcharts/highcharts.js"></script>
+<script type="text/javascript" src="https://show.askia.com/AskiaVistaReader.Net4/Scripts/askiavista.chart.highcharts.js"></script>
+  <script type="text/javascript" src="./connect.js"></script>
+   <script type="text/javascript">
+
+
+
+   askiaVista.getPages({
+     rows:"7. Type",
+     containerId: "result",
+     chart:93,
+     pagination:"pagination"
+   });
+
+ </script>
+	<!--style type="text/css">
+		#pagination li{
+			list-style:none;
+			display:inline-block;
+		}
+		#pagination a{
+			display:inline-block;
+			padding:10px;
+			border:1px solid black;
+		}
+
+	</style-->
+</head>
+
+<body>
+	<div id="result"></div>
+	<ul id="pagination"></ul>
+
+</body>
+
+
+</html>

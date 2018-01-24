@@ -1,0 +1,53 @@
+﻿<!doctype html >
+<html>
+<head>
+    <title>Training AskiaVista</title>
+    <script type="text/javascript" src="https://show.askia.com/AskiaVistaReader.Net4/Scripts/jquery.js"></script>
+    <script type="text/javascript" src="https://show.askia.com/AskiaVistaReader.Net4/Scripts/askiavista.js"></script>
+   <script type="text/javascript" src="./connect.js"></script>
+   <script type="text/javascript">
+
+
+		askiaVista.getPages({
+			"rows": [
+				{
+					shortcut:"7. Type",
+					responses:[
+						{
+							name:"group1",
+							responses:[1,2]
+						},
+						3,
+						4,
+						5,
+						6
+					]
+				}
+			],
+			"columns": ["i1. Gender"],
+			"settings":{
+					rows:{
+						sort:1
+					},
+					results:{
+						footnote:"toto",
+						topLeftCell:"titi"
+					}
+			},
+			"subPopulation": {
+				"definition": "??i1. Gender?? Has  {1}"
+			},
+			containerId: "result"
+		});
+
+    </script>
+</head>
+
+<body>
+
+    <div id="result"></div>
+
+</body>
+
+
+</html>

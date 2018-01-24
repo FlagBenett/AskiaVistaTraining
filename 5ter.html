@@ -1,0 +1,36 @@
+﻿<!doctype html >
+<html>
+  <head>
+      <title>Training AskiaVista</title>
+      <script type="text/javascript" src="https://show.askia.com/AskiaVistaReader.Net4/Scripts/jquery.js"></script>
+      <script type="text/javascript" src="https://show.askia.com/AskiaVistaReader.Net4/Scripts/askiavista.js"></script>
+      <script type="text/javascript" src="./connect.js"></script>
+     <script type="text/javascript">
+
+
+  		askiaVista.getPages({
+  			rows:[
+          {
+            shortcut:"7. Type",
+            responses:[
+              1,
+              2,
+              {
+                name:"group 3 and 4",
+                responses:[3,4]
+              }
+            ]
+
+          },
+          "i1. Gender"],
+  			columns: "i1. Gender",
+  			containerId: "result"
+  		});
+
+      </script>
+  </head>
+
+  <body>
+    <div id="result"></div>
+  </body>
+</html>

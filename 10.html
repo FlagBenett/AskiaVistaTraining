@@ -1,0 +1,55 @@
+﻿<!doctype html >
+<html>
+<head>
+    <title>Training AskiaVista</title>
+    <script type="text/javascript" src="https://show.askia.com/AskiaVistaReader.Net4/Scripts/jquery.js"></script>
+    <script type="text/javascript" src="https://show.askia.com/AskiaVistaReader.Net4/Scripts/askiavista.js"></script>
+	<script type="text/javascript" src="https://show.askia.com/AskiaVistaReader.Net4/Scripts/askiavista.replay.js"></script>
+   <script type="text/javascript" src="./connect.js"></script>
+   <script type="text/javascript">
+
+
+
+		askiaVista.getPages({
+			id:"1",
+      rows:"7. Type",
+      columns: "i1. Gender",
+			containerId: "result"
+		});
+
+		askiaVista.getPages({
+			id:"2",
+      rows:"7. Type",
+      columns: "i1. Gender",
+			containerId: "result2"
+		});
+
+		function myFilter_back(){
+			askiaVista.replay("1", {
+				"subPopulation":{
+					"definition":"??i1. Gender?? Has  {1}"
+				}
+			});
+		}
+
+    function myFilter(){
+			askiaVista.replay("1", {
+				rows:"i1. Gender"
+			});
+		}
+
+    </script>
+</head>
+
+<body>
+  <input type="button" value="filter table 1" onclick="myFilter()"/>
+  <p> Table 1</p>
+    <div id="result"></div>
+    <p> Table 2</p>
+	<div id="result2"></div>
+
+
+</body>
+
+
+</html>
