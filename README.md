@@ -1,14 +1,14 @@
 # Vista SDK training
 
 ## Intro topics
-* Introduction a Vista 5 admin
-* Permissions par utilisateur
-* Introduction a Vista 6
+* Introduction to Vista 5 admin
+* Permissions by user
+* Introduction to Vista 6
 * Source code
-* Generalités API
-* JQuery
-* JSON
-* Javascript
+* API Basics
+  * JQuery
+  * JSON
+  * Javascript
 
 ## Part 1 : Setup
 1. Files vs localhost
@@ -45,32 +45,17 @@
 * Combination of Replay and Dropdown, the harder way : [21.html](./21.html)
 * Combination of Replay and Dropdown, the easier way : [22.html](./22.html)
 * Multiple dropdowns : [24.html](./24.html)
+* Change languages with dropdown [25.html](./25.html)
+* Pagination plugin [27.html](./27.html) and [28.html](./28.html)
+* Exporting tables : [29.html](./29.html)
+* Dashbord boilerplates : [30.html](./30.html) and [31.html](./31.html)
 
+## Part 6 : Editing Vista objects
+* Move portfolio item : [34.html](./34.html)
 
-Inputlist
-Dotransaction :7.html
+## Part 7 : Customizing this API
+* Adding modules : https://dev.askia.com/projects/askiavista-sdk/wiki/_Plugin_definition
 
-Manual all : 9.html
-
-getSubPop + replay :14.html
-
-Still 15.html
-Exemple switch lange des variables avec config.language. (dans Urlparam par defaut ?language=1036 ou ?language=FRA) 
-
-Pagination des tables break : 16.html
-InputList : 17.html
-
-Dynamic filters and drilling : 19.html
-
-Export Excel :
-getInterviews
-get/saveUserInfo
-save, delete.
-
-New plugin : 20.html
-https://dev.askia.com/projects/askiavista-sdk/wiki/_Plugin_definition
-
-All together : 18.html
 
 
 
