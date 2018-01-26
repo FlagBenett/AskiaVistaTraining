@@ -49,6 +49,7 @@
 * Pagination plugin [27.html](./27.html) and [28.html](./28.html)
 * Exporting tables : [29.html](./29.html)
 * Dashbord boilerplates : [30.html](./30.html) and [31.html](./31.html)
+* Improve performance : [35.html](./35.html)
 
 ## Part 6 : Editing Vista objects
 * Move portfolio item : [34.html](./34.html)
