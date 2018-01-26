@@ -1,40 +1,23 @@
 ﻿<!doctype html >
 <html>
-<head>
-    <title>Training AskiaVista</title>
-    <script type="text/javascript" src="https://show.askia.com/AskiaVistaReader.Net4/Scripts/jquery.js"></script>
-	<script type="text/javascript" src="https://show.askia.com/AskiaVistaReader.Net4/Scripts/jquery.blockUI.js"></script>
-    <script type="text/javascript" src="https://show.askia.com/AskiaVistaReader.Net4/Scripts/askiavista.js"></script>
-	<script type="text/javascript" src="https://show.askia.com/AskiaVistaReader.Net4/Scripts/highcharts/highcharts.js"></script>
-	<script type="text/javascript" src="https://show.askia.com/AskiaVistaReader.Net4/Scripts/askiavista.chart.highcharts.js"></script>
-  <script type="text/javascript" src="./connect.js"></script>
-   <script type="text/javascript">
+  <head>
+      <title>Training AskiaVista</title>
+      <script type="text/javascript" src="https://show.askia.com/AskiaVistaReader.Net4/Scripts/jquery.js"></script>
+      <script type="text/javascript" src="https://show.askia.com/AskiaVistaReader.Net4/Scripts/askiavista.js"></script>
+      <script type="text/javascript" src="./connect.js"></script>
+     <script type="text/javascript">
 
 
-  /*askiaVista.getChartTemplates({
-   success : function (data, query) {
-      console.log(JSON.parse(data));
-   },
-   error : function (message, query) {
-       alert(message);
-   }
- });*/
-
-      askiaVista.getPages({
-  			rows:"7. Type",
-  			containerId: "result",
-        chart:93,
-        page:1
+  		askiaVista.getPages({
+  			rows:["7. Type","i1. Gender"],
+  			columns: "i1. Gender",
+  			containerId: "result"
   		});
 
-    </script>
-</head>
+      </script>
+  </head>
 
-<body>
-
+  <body>
     <div id="result"></div>
-
-</body>
-
-
+  </body>
 </html>

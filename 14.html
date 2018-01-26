@@ -3,59 +3,56 @@
 <head>
     <title>Training AskiaVista</title>
     <script type="text/javascript" src="https://show.askia.com/AskiaVistaReader.Net4/Scripts/jquery.js"></script>
+	<script type="text/javascript" src="https://show.askia.com/AskiaVistaReader.Net4/Scripts/jquery.blockUI.js"></script>
     <script type="text/javascript" src="https://show.askia.com/AskiaVistaReader.Net4/Scripts/askiavista.js"></script>
-	<script type="text/javascript" src="https://show.askia.com/AskiaVistaReader.Net4/Scripts/askiavista.replay.js"></script>
-	<script type="text/javascript" src="https://show.askia.com/AskiaVistaReader.Net4/Scripts/askiavista.ui.dropdown.js"></script>
-   <script type="text/javascript" src="./connect.js"></script>
+	<script type="text/javascript" src="https://show.askia.com/AskiaVistaReader.Net4/Scripts/highcharts/highcharts.js"></script>
+	<script type="text/javascript" src="https://show.askia.com/AskiaVistaReader.Net4/Scripts/askiavista.chart.highcharts.js"></script>
+  <script type="text/javascript" src="./connect.js"></script>
    <script type="text/javascript">
 
-	askiaVista.getQuestions({
-			profile:"test54",
-			dropDown:"#DD1",
-			replay:{
-				id:"1",
-				parameter:"rows"
-			}
-		});
-		askiaVista.getQuestions({
-      profile:"test54",
-			dropDown:"#DD2",
-			replay:{
-				id:"1",
-				parameter:"columns"
-			}
-		});
-		askiaVista.getSubPopulations({
-			dropDown:"#DD3",
-			replay:"1"
-		});
 
-		askiaVista.getPages({
-			id:"1",
-			"rows": [
-				{
-					shortcut:"7. Type"
+  /*askiaVista.getChartTemplates({
+   success : function (data, query) {
+      console.log(JSON.parse(data));
+   },
+   error : function (message, query) {
+       alert(message);
+   }
+ });*/
+
+      askiaVista.getPages({
+  			rows:"7. Type",
+  			containerId: "result",
+        page:1,
+        settings: {
+            rows: {
+                sort: 1
+            }
+        },
+        chart:{
+					name:"Highcharts",
+					options:{
+            /**************REPLACE WITH HIGHCHARTS OPTIONS FROM HERE, EXCLUDING SERIES***************/
+            /*Source : https://www.highcharts.com/demo/area-inverted*/
+            chart: {
+                    type: 'funnel',
+                    inverted: true
+            }
+
+          }
+
+
+
+          /************************TO HERE*****************************/
 				}
-			],
-			"columns": ["i1. Gender"],
-			containerId: "result1"
-		});
-
-		function myFilter(){
-			askiaVista.replay("1", {
-				"rows":document.getElementById("DD").value
-			});
-		}
+  		});
 
     </script>
 </head>
 
 <body>
 
-    <select id="DD1"></select>
-	<select id="DD2"></select>
-	<select id="DD3"></select>
-	<div id="result1"></div>
+    <div id="result"></div>
 
 </body>
 

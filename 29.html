@@ -1,0 +1,132 @@
+﻿<!doctype html >
+<html>
+<head>
+    <title>Training AskiaVista</title>
+    <script type="text/javascript" src="https://show.askia.com/AskiaVistaReader.Net4/Scripts/jquery.js"></script>
+    <script type="text/javascript" src="https://show.askia.com/AskiaVistaReader.Net4/Scripts/askiavista.js"></script>
+	<script type="text/javascript" src="https://show.askia.com/AskiaVistaReader.Net4/Scripts/askiavista.ui.pagination.js"></script>
+   <script type="text/javascript" src="https://show.askia.com/AskiaVistaReader.Net4/Scripts/askiavista.ui.inputlist.js"></script>
+   <script type="text/javascript" src="https://show.askia.com/AskiaVistaReader.Net4/Scripts/askiavista.replay.js"></script>
+   <script type="text/javascript" src="https://show.askia.com/AskiaVistaReader.Net4/Scripts/askiavista.chart.highcharts.js"></script>
+   <script type="text/javascript" src="https://show.askia.com/AskiaVistaReader.Net4/Scripts/Highcharts/highcharts.js"></script>
+   <script type="text/javascript" src="https://show.askia.com/AskiaVistaReader.Net4/Scripts/askiavista.ui.dropdown.js"></script>
+   <script type="text/javascript" src="https://show.askia.com/AskiaVistaReader.Net4/Scripts/askiavista.ui.fixedHeaders.js"></script>
+   <script type="text/javascript" src="https://show.askia.com/AskiaVistaReader.Net4/Scripts/askiavista.ui.pagination.js"></script>
+      <script type="text/javascript" src="./connect.js"></script>
+
+   <script type="text/javascript">
+
+		askiaVista.getQuestions({
+			profile:"test54",
+			dropDown:"#DD",
+			replay:{
+				id:["table1","table2","table3","table4"],
+				parameter:"rows"
+			}
+		});
+
+		askiaVista.getSubPopulations({
+			dropDown:"#SP",
+			replay:["table1","table2","table3","table4"]
+		});
+
+
+		askiaVista.getPages({
+			id:"table1",
+			loadingMessage:" ",
+			title:"Ma table",
+			columns:["i2. Age"],
+			settings:{
+
+			},
+			containerId:"result1"
+		});
+		askiaVista.getPages({
+			id:"table2",
+			loadingMessage:" ",
+			title:"Ma table",
+			rows:["i1. Gender"],
+			settings:{
+
+			},
+			containerId:"result2",
+			subPopulation:{
+				definition:"??i1. Gender?? has{1}"
+			}
+		});
+		askiaVista.getInterviews({
+			id:"table3",
+			format:"html",
+			loadingMessage:" ",
+			title:"Mes interviews",
+			questions:"5. Comments",
+			containerId:"result3",
+			fixHeaders:{},
+			lazyLoading : true,
+			maxPerPage:10
+		});
+		askiaVista.getPages({
+			id:"table4",
+			page:1,
+			loadingMessage:" ",
+			title:"Ma table",
+			rows:["i1. Gender"],
+			columns:["i2. Age"],
+			containerId:"result4",
+			chart:{
+				name:"Highcharts"
+			},
+			pagination:"pagecontainer"
+		});
+
+		function myExport(tablename){
+			var tableToExport = askiaVista.replay.get("table4");
+			tableToExport.entity="crosstab";
+			tableToExport.fileFormat="Excel";
+			tableToExport.fileNameFromTitle=true;
+			askiaVista.exportTo(tableToExport);
+		}
+
+
+
+
+    </script>
+	<style>
+	#dashboardcontainer{
+	}
+	.resultcontainer{
+		border:1px solid black;
+		width:45%;
+		margin:10px;
+		overflow:hidden;
+		display:inline-block;
+		height:400px;
+	}
+	#header{
+		display:block;
+		width:100%;
+		height:50px;
+		border-bottom:2px solid #F0F0F0;
+	}
+	</style>
+</head>
+
+<body>
+	<div id="header">
+		<select id="DD"></select>
+		<select id="SP"></select>
+		<input type="button" value="Exporter les données" onclick="myExport()"/>
+	</div>
+	<div id="dashboardcontainer">
+		<div id="result1" class="resultcontainer"></div>
+		<div id="result2" class="resultcontainer"></div>
+		<div id="result3" class="resultcontainer"></div>
+		<div class="resultcontainer">
+			<select id="pagecontainer"></select>
+			<div id="result4"></div>
+		</div>
+	</div>
+</body>
+
+
+</html>

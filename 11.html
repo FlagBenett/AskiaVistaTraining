@@ -3,32 +3,73 @@
 <head>
     <title>Training AskiaVista</title>
     <script type="text/javascript" src="https://show.askia.com/AskiaVistaReader.Net4/Scripts/jquery.js"></script>
+	<script type="text/javascript" src="https://show.askia.com/AskiaVistaReader.Net4/Scripts/jquery.blockUI.js"></script>
     <script type="text/javascript" src="https://show.askia.com/AskiaVistaReader.Net4/Scripts/askiavista.js"></script>
-	<script type="text/javascript" src="https://show.askia.com/AskiaVistaReader.Net4/Scripts/askiavista.replay.js"></script>
-	<script type="text/javascript" src="https://show.askia.com/AskiaVistaReader.Net4/Scripts/askiavista.ui.dropdown.js"></script>
-
-<script type="text/javascript" src="./connect.js"></script>
+	<script type="text/javascript" src="https://show.askia.com/AskiaVistaReader.Net4/Scripts/highcharts/highcharts.js"></script>
+	<script type="text/javascript" src="https://show.askia.com/AskiaVistaReader.Net4/Scripts/askiavista.chart.highcharts.js"></script>
+  <script type="text/javascript" src="./connect.js"></script>
    <script type="text/javascript">
 
 
-		askiaVista.getQuestions({
-			dropDown:"#DD",
-			//profile:"questionnaire"
-		});
+  /*askiaVista.getChartTemplates({
+   success : function (data, query) {
+      console.log(JSON.parse(data));
+   },
+   error : function (message, query) {
+       alert(message);
+   }
+ });*/
 
-    /*askiaVista.getPages({
-      rows:"7. Type",
-      columns: "i1. Gender",
-      containerId: "result",
-    });*/
+      askiaVista.getPages({
+  			rows:"7. Type",
+  			containerId: "result",
+        page:1,
+        chart:{
+					name:"Highcharts",
+					options:{
+						chart: {
+							type:"area",
+							zoomType: 'x'
+						},
+						legend: {
+							enabled: false
+						},
+						plotOptions: {
+							area: {
+								fillColor: {
+									linearGradient: {
+										x1: 0,
+										y1: 0,
+										x2: 0,
+										y2: 1
+									},
+									stops: [
+										[0, Highcharts.getOptions().colors[0]],
+										[1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+									]
+								},
+								marker: {
+									radius: 2
+								},
+								lineWidth: 1,
+								states: {
+									hover: {
+										lineWidth: 1
+									}
+								},
+								threshold: null
+							}
+						}
+					}
+				}
+  		});
 
     </script>
 </head>
 
 <body>
 
-  <select id="DD"></select>
-	<div id="result"></div>
+    <div id="result"></div>
 
 </body>
 

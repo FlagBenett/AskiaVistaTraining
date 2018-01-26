@@ -4,55 +4,40 @@
     <title>Training AskiaVista</title>
     <script type="text/javascript" src="https://show.askia.com/AskiaVistaReader.Net4/Scripts/jquery.js"></script>
     <script type="text/javascript" src="https://show.askia.com/AskiaVistaReader.Net4/Scripts/askiavista.js"></script>
-	<script type="text/javascript" src="https://show.askia.com/AskiaVistaReader.Net4/Scripts/askiavista.ui.pagination.js"></script>
-   <script type="text/javascript" src="https://show.askia.com/AskiaVistaReader.Net4/Scripts/askiavista.ui.inputlist.js"></script>
-   <script type="text/javascript" src="https://show.askia.com/AskiaVistaReader.Net4/Scripts/askiavista.replay.js"></script>
-   <script type="text/javascript" src="./connect.js"></script>
+	<script type="text/javascript" src="https://show.askia.com/AskiaVistaReader.Net4/Scripts/highcharts/highcharts.js"></script>
+	<script type="text/javascript" src="https://show.askia.com/AskiaVistaReader.Net4/Scripts/askiavista.chart.highcharts.js"></script>
+<script type="text/javascript" src="./connect.js"></script>
    <script type="text/javascript">
 
+	askiaVista.getQuestions({
+       success : function (data, query) {
+          console.log(JSON.parse(data));
+       },
+       error : function (message, query) {
+           alert(message);
+       }
+	});
+	 askiaVista.getResponses({
+       survey  : "EX",
+       question : "i1. Gender",
+       success : function (data, query) {
+          console.log(JSON.parse(data));
+       },
+       error : function (message, query) {
+           alert(message);
+       }
+	});
 
-		askiaVista.getQuestions({
-			profile: "test54",
-			inputList : {
-				selector:"#rows",
-				type:"radio"
-			},
-			replay:{
-				id:"1",
-				parameter:"rows"
-			}
-		});
-		askiaVista.getPages({
-			id:"1",
-			title:"??R??",
-			"rows": ["i1. Gender", "i2. Age","1. Appreciation"],
-			"columns": ["i1. Gender"],
-			pagination:"pagination",
-			containerId: "result1"
-		});
+
 
 
 
     </script>
-	<style type="text/css">
-		#pagination li{
-			list-style:none;
-			display:inline-block;
-		}
-		#pagination a{
-			display:inline-block;
-			padding:10px;
-			border:1px solid black;
-		}
-
-	</style>
 </head>
 
 <body>
-	<ul id="rows"></ul>
-	<div id="result1"></div>
-	<ul id="pagination"></ul>
 
+  <p> F12 to open console </p>
 
 </body>
 

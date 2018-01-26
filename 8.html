@@ -1,45 +1,23 @@
 ﻿<!doctype html >
 <html>
-<head>
-    <title>Training AskiaVista</title>
-    <script type="text/javascript" src="https://show.askia.com/AskiaVistaReader.Net4/Scripts/jquery.js"></script>
-    <script type="text/javascript" src="https://show.askia.com/AskiaVistaReader.Net4/Scripts/askiavista.js"></script>
-	<script type="text/javascript" src="https://show.askia.com/AskiaVistaReader.Net4/Scripts/highcharts/highcharts.js"></script>
-	<script type="text/javascript" src="https://show.askia.com/AskiaVistaReader.Net4/Scripts/askiavista.chart.highcharts.js"></script>
-<script type="text/javascript" src="./connect.js"></script>
-   <script type="text/javascript">
-
-	askiaVista.getQuestions({
-       success : function (data, query) {
-          console.log(JSON.parse(data));
-       },
-       error : function (message, query) {
-           alert(message);
-       }
-	});
-	 askiaVista.getResponses({
-       survey  : "EX",
-       question : "i1. Gender",
-       success : function (data, query) {
-          console.log(JSON.parse(data));
-       },
-       error : function (message, query) {
-           alert(message);
-       }
-	});
+  <head>
+      <title>Training AskiaVista</title>
+      <script type="text/javascript" src="https://show.askia.com/AskiaVistaReader.Net4/Scripts/jquery.js"></script>
+      <script type="text/javascript" src="https://show.askia.com/AskiaVistaReader.Net4/Scripts/askiavista.js"></script>
+      <script type="text/javascript" src="./connect.js"></script>
+     <script type="text/javascript">
 
 
+  		askiaVista.getPages({
+  			profileRows:"test54",
+  			columns: "i1. Gender",
+  			containerId: "result"
+  		});
 
+      </script>
+  </head>
 
-
-    </script>
-</head>
-
-<body>
-
-  <p> F12 to open console </p>
-
-</body>
-
-
+  <body>
+    <div id="result"></div>
+  </body>
 </html>

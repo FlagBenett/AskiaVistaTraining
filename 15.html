@@ -3,54 +3,57 @@
 <head>
     <title>Training AskiaVista</title>
     <script type="text/javascript" src="https://show.askia.com/AskiaVistaReader.Net4/Scripts/jquery.js"></script>
+	<script type="text/javascript" src="https://show.askia.com/AskiaVistaReader.Net4/Scripts/jquery.blockUI.js"></script>
     <script type="text/javascript" src="https://show.askia.com/AskiaVistaReader.Net4/Scripts/askiavista.js"></script>
-	<script type="text/javascript" src="https://show.askia.com/AskiaVistaReader.Net4/Scripts/askiavista.replay.js"></script>
-	<script type="text/javascript" src="https://show.askia.com/AskiaVistaReader.Net4/Scripts/askiavista.ui.dropdown.js"></script>
-   <script type="text/javascript" src="./connect.js"></script>
+	<script type="text/javascript" src="https://show.askia.com/AskiaVistaReader.Net4/Scripts/highcharts/highcharts.js"></script>
+	<script type="text/javascript" src="https://show.askia.com/AskiaVistaReader.Net4/Scripts/askiavista.chart.highcharts.js"></script>
+  <script type="text/javascript" src="./connect.js"></script>
    <script type="text/javascript">
 
-		askiaVista.getQuestions({
-			profile:"test54",
-			success:function(result){
-				var jsonresult = JSON.parse(result);
-				for(var i=0; i<jsonresult.length;i++ ){
-					//console.log(jsonresult[i].caption);
-					var x = document.getElementById("DD1");
-					var option = document.createElement("option");
-					option.text = jsonresult[i].shortcut;
-					x.add(option);
-				}
-			}
-		});
 
-		askiaVista.getPages({
-			id:"1",
-      rows:"7. Type",
-      columns: "i1. Gender",
-      containerId: "result1"
-		});
+  /*askiaVista.getChartTemplates({
+   success : function (data, query) {
+      console.log(JSON.parse(data));
+   },
+   error : function (message, query) {
+       alert(message);
+   }
+ });*/
 
-		function myFilter(){
-			//console.log($("#DD1").value);
-			askiaVista.getPages({
-			id:"1",
-			"rows": [
-				{
-					shortcut:$("#DD1").find(":selected").text()
+      askiaVista.getPages({
+  			rows:"7. Type",
+        //sort:1
+  			containerId: "result",
+        page:1,
+        settings: {
+            rows: {
+                sort: 1
+            }
+        },
+        chart:{
+					name:"Highcharts",
+					options:{
+            /**************REPLACE WITH HIGHCHARTS OPTIONS FROM HERE, EXCLUDING SERIES***************/
+            /*Source : https://www.highcharts.com/demo/area-inverted*/
+            chart: {
+                    type: 'pyramid',
+                    inverted: true
+            }
+
+          }
+
+
+
+          /************************TO HERE*****************************/
 				}
-			],
-			"columns": "i1. Gender",
-			containerId: "result1"
-		});
-		}
+  		});
 
     </script>
 </head>
 
 <body>
 
-    <select id="DD1" onchange="myFilter()"></select>
-	<div id="result1"></div>
+    <div id="result"></div>
 
 </body>
 

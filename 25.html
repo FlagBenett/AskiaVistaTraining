@@ -6,36 +6,53 @@
     <script type="text/javascript" src="https://show.askia.com/AskiaVistaReader.Net4/Scripts/askiavista.js"></script>
 	<script type="text/javascript" src="https://show.askia.com/AskiaVistaReader.Net4/Scripts/askiavista.replay.js"></script>
 	<script type="text/javascript" src="https://show.askia.com/AskiaVistaReader.Net4/Scripts/askiavista.ui.dropdown.js"></script>
-<script type="text/javascript" src="./connect.js"></script>
+   <script type="text/javascript" src="./connect.js"></script>
    <script type="text/javascript">
 
-
-		askiaVista.getQuestions({
-			dropDown:"#DD",
-			//profile:"questionnaire"
+	askiaVista.getQuestions({
+			profile:"ProfilRow",
+			dropDown:"#DD1",
+			replay:{
+				id:"1",
+				parameter:"rows"
+			}
 		});
 
-    askiaVista.getPages({
-      rows:"7. Type",
-      columns: "i1. Gender",
-      containerId: "result",
-      id:1
-    });
 
-		function myFilter(){
-			askiaVista.replay("1", {
-				"rows":document.getElementById("DD").value
-			});
-		}
+    askiaVista.getLanguages({
+       dropDown:"#DD2",
+       replay:{
+ 				id:"1",
+ 				parameter:"language"
+ 			}
+  });
+
+
+		askiaVista.getSubPopulations({
+			dropDown:"#DD3",
+			replay:"1"
+		});
+
+		askiaVista.getPages({
+			id:"1",
+			"rows": [
+				{
+					shortcut:"LANGUAGE"
+				}
+			],
+			"columns": ["i1. Gender"],
+			containerId: "result1"
+		});
 
     </script>
 </head>
 
 <body>
 
-    <select id="DD" onchange="myFilter()"></select>
-	<div id="result"></div>
-	<input type="button" value="filter table " onclick="myFilter()"/>
+    <select id="DD1"></select>
+	<select id="DD2"></select>
+	<select id="DD3"></select>
+	<div id="result1"></div>
 
 </body>
 

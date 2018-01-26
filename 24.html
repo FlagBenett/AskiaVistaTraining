@@ -6,21 +6,40 @@
     <script type="text/javascript" src="https://show.askia.com/AskiaVistaReader.Net4/Scripts/askiavista.js"></script>
 	<script type="text/javascript" src="https://show.askia.com/AskiaVistaReader.Net4/Scripts/askiavista.replay.js"></script>
 	<script type="text/javascript" src="https://show.askia.com/AskiaVistaReader.Net4/Scripts/askiavista.ui.dropdown.js"></script>
-<script type="text/javascript" src="./connect.js"></script>
+   <script type="text/javascript" src="./connect.js"></script>
    <script type="text/javascript">
 
-
+	askiaVista.getQuestions({
+			profile:"test54",
+			dropDown:"#DD1",
+			replay:{
+				id:"1",
+				parameter:"rows"
+			}
+		});
 		askiaVista.getQuestions({
-			dropDown:"#DD",
-			//profile:"questionnaire"
+      profile:"test54",
+			dropDown:"#DD2",
+			replay:{
+				id:"1",
+				parameter:"columns"
+			}
+		});
+		askiaVista.getSubPopulations({
+			dropDown:"#DD3",
+			replay:"1"
 		});
 
-    askiaVista.getPages({
-      rows:"7. Type",
-      columns: "i1. Gender",
-      containerId: "result",
-      id:1
-    });
+		askiaVista.getPages({
+			id:"1",
+			"rows": [
+				{
+					shortcut:"7. Type"
+				}
+			],
+			"columns": ["i1. Gender"],
+			containerId: "result1"
+		});
 
 		function myFilter(){
 			askiaVista.replay("1", {
@@ -33,9 +52,10 @@
 
 <body>
 
-    <select id="DD" onchange="myFilter()"></select>
-	<div id="result"></div>
-	<input type="button" value="filter table " onclick="myFilter()"/>
+    <select id="DD1"></select>
+	<select id="DD2"></select>
+	<select id="DD3"></select>
+	<div id="result1"></div>
 
 </body>
 
